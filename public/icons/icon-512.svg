@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="100" fill="#0f2b5c"/>
+  <circle cx="256" cy="256" r="200" fill="#1b3f7d"/>
+  <!-- Steering wheel & road badge -->
+  <path d="M256 96 L400 360 L112 360 Z" fill="none" stroke="#14b8a6" stroke-width="20" stroke-linejoin="round"/>
+  <!-- Road divider dashes -->
+  <line x1="256" y1="210" x2="256" y2="255" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <line x1="256" y1="285" x2="256" y2="340" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <!-- Indian Tricolor Accent Dots -->
+  <circle cx="190" cy="410" r="16" fill="#f97316"/>
+  <circle cx="256" cy="410" r="16" fill="#ffffff"/>
+  <circle cx="322" cy="410" r="16" fill="#22c55e"/>
+  <!-- Licence Checkmark Shield -->
+  <circle cx="256" cy="144" r="42" fill="#14b8a6"/>
+  <path d="M240 144 L252 156 L276 130" fill="none" stroke="#0f2b5c" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

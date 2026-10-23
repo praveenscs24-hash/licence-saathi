@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Licence Saathi — 3-Minute Demo Recording Teleprompter</title>
+  <style>
+    :root {
+      --navy: #0f2b5c;
+      --teal: #0d9488;
+      --amber: #f59e0b;
+      --bg: #0b1120;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: var(--card);
+      padding: 16px 24px;
+      border-radius: 16px;
+      border: 1px solid #334155;
+      margin-bottom: 24px;
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
+    }
+    .title-area h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+    .title-area p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .timer-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .clock {
+      font-family: monospace;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--amber);
+      background: #020617;
+      padding: 4px 16px;
+      border-radius: 12px;
+      border: 1px solid #475569;
+      letter-spacing: 2px;
+      min-width: 140px;
+      text-align: center;
+    }
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
+    button {
+      background: var(--teal);
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.15s;
+    }
+    button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+    button.reset-btn {
+      background: #475569;
+    }
+    .timeline-bar {
+      width: 100%;
+      height: 8px;
+      background: #334155;
+      border-radius: 4px;
+      margin-top: 12px;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--teal), var(--amber));
+      transition: width 0.3s linear;
+    }
+    .shot-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .shot-card {
+      background: var(--card);
+      border: 2px solid #334155;
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.3s;
+      opacity: 0.6;
+    }
+    .shot-card.active {
+      opacity: 1;
+      border-color: var(--amber);
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+      transform: scale(1.01);
+    }
+    .shot-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #334155;
+    }
+    .shot-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #f1f5f9;
+    }
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #020617;
+      color: var(--amber);
+      border: 1px solid #475569;
+    }
+    .speech-box {
+      background: #0f172a;
+      border-left: 4px solid var(--teal);
+      padding: 14px 18px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 14px;
+    }
+    .speech-box p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #38bdf8;
+      line-height: 1.6;
+    }
+    .actions-box {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: #090d16;
+      padding: 10px 14px;
+      border-radius: 8px;
+    }
+    .actions-box strong {
+      color: #e2e8f0;
+    }
+    .actions-box ul {
+      margin-left: 20px;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title-area">
+        <h1>Licence Saathi Demo Recording Companion</h1>
+        <p>180-Second Step-by-Step Recording Assistant</p>
+      </div>
+      <div class="timer-area">
+        <div class="clock" id="clockDisplay">00:00</div>
+        <div class="controls">
+          <button id="toggleBtn">Start (Space)</button>
+          <button class="reset-btn" id="resetBtn">Reset</button>
+        </div>
+      </div>
+      <div class="timeline-bar">
+        <div class="progress" id="progressBar"></div>
+      </div>
+    </header>
+
+    <div class="shot-list">
+      <!-- Shot 1 -->
+      <div class="shot-card" id="shot1" data-start="0" data-end="15">
+        <div class="shot-header">
+          <span class="shot-title">1. Problem & Introduction</span>
+          <span class="badge">0:00 – 0:15 (15s)</span>
+        </div>
+        <div class="speech-box">
+          <p>"Applying for a driving licence can feel confusing, especially for a first-time applicant. Licence Saathi turns the journey into simple, guided steps."</p>
+        </div>
+        <div class="actions-box">
+          <strong>On-Screen Action (URL: http://localhost:5173/):</strong>
+          <ul>
+            <li>Display Licence Saathi homepage in Chrome (1920x1080 @ 110% zoom).</li>
+            <li>Point out the prototype disclaimer at the top.</li>
+            <li>Hover over the 4 starting situation cards and 6-stage roadmap.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shot 2 -->
+      <div class="shot-card" id="shot2" data-start="15" data-end="40">
+        <div class="shot-header">
+          <span class="shot-title">2. Guided Journey — Eligibility & Documents</span>
+          <span class="badge">0:15 – 0:40 (25s)</span>
+        </div>
+        <div class="speech-box">
+          <p>"Users can understand eligibility, prepare their documents and see exactly what to do next. The calculator shows exact rules for your vehicle class and age, while the document checklist demystifies official requirements in plain words."</p>
+        </div>
+        <div class="actions-box">
+          <strong>On-Screen Action (URL: /apply -> /documents):</strong>
+          <ul>
+            <li>Click "Just starting out" (/apply).</li>
+            <li>Enter Age 19, MCWG, UP. Click "Check Eligibility" -> Green confirmation card.</li>
+            <li>Type 17 to show the future eligibility date countdown! Re-enter 19.</li>
+            <li>Click "Check Documents" (/documents). Tick checkboxes (Age, Address, Photo). Show Form 1A only for 40+.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shot 3 -->
+      <div class="shot-card" id="shot3" data-start="40" data-end="65">
+        <div class="shot-header">
+          <span class="shot-title">3. Learner Application — Simulated Wizard</span>
+          <span class="badge">0:40 – 1:05 (25s)</span>
+        </div>
+        <div class="speech-box">
+          <p>"The guided form saves progress and makes every step easier to understand. The application and payment are simulated, giving first-time applicants complete confidence before they visit the actual portal."</p>
+        </div>
+        <div class="actions-box">
+          <strong>On-Screen Action (URL: /ll-application):</strong>
+          <ul>
+            <li>Show 1-question per step wizard and progress bar (Steps 1 to 8).</li>
+            <li>Step 8 Review screen: Show edit buttons and fee breakdown (₹150 LL + ₹50 test = ₹200).</li>
+            <li>Click "Simulate Demo Payment". Show green simulated receipt (DL-2026-XXXXX).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shot 4 -->
+      <div class="shot-card" id="shot4" data-start="65" data-end="95">
+        <div class="shot-header">
+          <span class="shot-title">4. Learn & Practise — 22 SVG Signs & Mock Test</span>
+          <span class="badge">1:05 – 1:35 (30s)</span>
+        </div>
+        <div class="speech-box">
+          <p>"Interactive lessons, traffic signs and practice questions help applicants learn road safety before taking the learner's test. Every sign is an inline SVG, with text-to-speech audio and flip flashcards, along with instant explanations and a 30-second countdown timer matching real RTO exams."</p>
+        </div>
+        <div class="actions-box">
+          <strong>On-Screen Action (URL: /learn -> /mock-test):</strong>
+          <ul>
+            <li>Navigate to /learn: View Mandatory, Cautionary, Informatory signs (pure inline SVGs).</li>
+            <li>Click Listen button on "Stop" sign. Flip an interactive flashcard.</li>
+            <li>Open /mock-test: Start Practice Mode. Click an option for instant green/red explanation.</li>
+            <li>Show Timed Test mode with 30-second question timer from config.js.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shot 5 -->
+      <div class="shot-card" id="shot5" data-start="95" data-end="115">
+        <div class="shot-header">
+          <span class="shot-title">5. Test Preparation & Permanent Licence</span>
+          <span class="badge">1:35 – 1:55 (20s)</span>
+        </div>
+        <div class="speech-box">
+          <p>"Users can prepare for test day and understand when they may apply for a permanent licence. The calendar-safe calculator tracks the mandatory 30-day waiting rule and 180-day expiry, with simulated RTO slot booking."</p>
+        </div>
+        <div class="actions-box">
+          <strong>On-Screen Action (URL: /test-day -> /permanent-licence):</strong>
+          <ul>
+            <li>Open /test-day: Launch 3-question "Try the Test Screen" simulator.</li>
+            <li>Open /permanent-licence: Enter LL issue date to show calendar-safe 30-day waiting & 180-day expiry.</li>
+            <li>Select RTO slot and confirm simulated appointment.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shot 6 -->
+      <div class="shot-card" id="shot6" data-start="115" data-end="135">
+        <div class="shot-header">
+          <span class="shot-title">6. Application Tracking & AI Helper</span>
+          <span class="badge">1:55 – 2:15 (20s)</span>
+        </div>
+        <div class="speech-box">
+          <p>"Sample tracking makes application stages easier to understand. The assistant answers common questions and provides a local fallback, with strict privacy filters that refuse sensitive Aadhaar numbers."</p>
+        </div>
+        <div class="actions-box">
+          <strong>On-Screen Action (URL: /track -> /chat):</strong>
+          <ul>
+            <li>Open /track: Click sample DL-2026-90412 (Ramesh) to show 6-stage timeline down to Speed Post delivery.</li>
+            <li>Open /chat: Click quick chip for documents.</li>
+            <li>Test Aadhaar refusal: Enter 12-digit number -> immediate red safety refusal warning.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shot 7 -->
+      <div class="shot-card" id="shot7" data-start="135" data-end="155">
+        <div class="shot-header">
+          <span class="shot-title">7. Phone Accessibility Demonstration (Hindi @ 360px)</span>
+          <span class="badge">2:15 – 2:35 (20s)</span>
+        </div>
+        <div class="speech-box">
+          <p>"Licence Saathi supports Hindi, accessible text sizes and mobile-first navigation for people using basic smartphones. Every element is tested at 360 pixels width with large typography and high contrast for bright sunlight readability."</p>
+        </div>
+        <div class="actions-box">
+          <strong>On-Screen Action (URL: /settings -> 360px Mobile View):</strong>
+          <ul>
+            <li>In /settings: Switch language to हिंदी (Hindi), Text Size to Large (20px).</li>
+            <li>Press F12 -> Device Toolbar (Ctrl+Shift+M) -> 360 x 740 px.</li>
+            <li>Show Home and Learn in Hindi: perfect word wrapping, 48px touch targets, zero clipping.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shot 8 -->
+      <div class="shot-card" id="shot8" data-start="155" data-end="170">
+        <div class="shot-header">
+          <span class="shot-title">8. Offline Capability</span>
+          <span class="badge">2:35 – 2:50 (15s)</span>
+        </div>
+        <div class="speech-box">
+          <p>"After the first successful load, cached learning and journey features can continue working without an internet connection. The Progressive Web App ensures that unreliable 2G or 3G data never stops an applicant from preparing."</p>
+        </div>
+        <div class="actions-box">
+          <strong>On-Screen Action (DevTools Network -> Offline):</strong>
+          <ul>
+            <li>In Chrome DevTools Network tab: toggle "Offline".</li>
+            <li>Reload or click /learn or /mock-test.</li>
+            <li>Show top Offline Banner: app continues functioning seamlessly from offline cache.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shot 9 -->
+      <div class="shot-card" id="shot9" data-start="170" data-end="180">
+        <div class="shot-header">
+          <span class="shot-title">9. Closing & Summary</span>
+          <span class="badge">2:50 – 3:00 (10s)</span>
+        </div>
+        <div class="speech-box">
+          <p>"Licence Saathi makes the driving licence journey simpler, clearer and more accessible. It is a prototype using sample data, not an official government service."</p>
+        </div>
+        <div class="actions-box">
+          <strong>On-Screen Action (URL: Full Screen /):</strong>
+          <ul>
+            <li>Exit DevTools back to Full HD landscape homepage.</li>
+            <li>Highlight footer benefits: Multilingual • Offline • Accessible • Free.</li>
+            <li>Conclude on prototype disclaimer badge.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let seconds = 0;
+    let timer = null;
+    const clock = document.getElementById('clockDisplay');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const progressBar = document.getElementById('progressBar');
+    const shotCards = document.querySelectorAll('.shot-card');
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60).toString().padStart(2, '0');
+      const s = (sec % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function update() {
+      clock.textContent = formatTime(seconds);
+      const pct = Math.min(100, (seconds / 180) * 100);
+      progressBar.style.width = pct + '%';
+
+      shotCards.forEach(card => {
+        const start = parseInt(card.dataset.start);
+        const end = parseInt(card.dataset.end);
+        if (seconds >= start && seconds < end) {
+          card.classList.add('active');
+          if (seconds === start) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } else {
+          card.classList.remove('active');
+        }
+      });
+
+      if (seconds >= 180) {
+        clearInterval(timer);
+        timer = null;
+        toggleBtn.textContent = 'Finished';
+      }
+    }
+
+    function toggleTimer() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+        toggleBtn.textContent = 'Resume';
+      } else {
+        if (seconds >= 180) seconds = 0;
+        timer = setInterval(() => {
+          seconds++;
+          update();
+        }, 1000);
+        toggleBtn.textContent = 'Pause';
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = null;
+      seconds = 0;
+      update();
+      toggleBtn.textContent = 'Start (Space)';
+    }
+
+    toggleBtn.addEventListener('click', toggleTimer);
+    resetBtn.addEventListener('click', resetTimer);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space' && e.target.tagName !== 'BUTTON') {
+        e.preventDefault();
+        toggleTimer();
+      }
+    });
+
+    update();
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+1
+00:00:01,000 --> 00:00:07,500
+Applying for a driving licence can feel confusing, especially for a first-time applicant.
+
+2
+00:00:08,000 --> 00:00:14,500
+Licence Saathi turns the journey into simple, guided steps.
+
+3
+00:00:15,500 --> 00:00:23,000
+Users can understand eligibility, prepare their documents and see exactly what to do next.
+
+4
+00:00:24,000 --> 00:00:31,000
+The calculator shows exact rules for your vehicle class and age,
+
+5
+00:00:31,500 --> 00:00:39,000
+while the document checklist demystifies official requirements in plain words.
+
+6
+00:00:40,500 --> 00:00:48,000
+The guided form saves progress and makes every step easier to understand.
+
+7
+00:00:49,000 --> 00:00:56,500
+The application and payment are simulated,
+
+8
+00:00:57,000 --> 00:01:04,500
+giving first-time applicants complete confidence before they visit the actual portal.
+
+9
+00:01:05,500 --> 00:01:14,000
+Interactive lessons, traffic signs and practice questions help applicants learn road safety before taking the learner's test.
+
+10
+00:01:15,000 --> 00:01:23,500
+Every sign is an inline SVG, with text-to-speech audio and flip flashcards,
+
+11
+00:01:24,000 --> 00:01:34,000
+along with instant explanations and a 30-second countdown timer matching real RTO exams.
+
+12
+00:01:35,500 --> 00:01:43,500
+Users can prepare for test day and understand when they may apply for a permanent licence.
+
+13
+00:01:44,500 --> 00:01:54,000
+The calendar-safe calculator tracks the mandatory 30-day waiting rule and 180-day expiry, with simulated RTO slot booking.
+
+14
+00:01:55,500 --> 00:02:02,000
+Sample tracking makes application stages easier to understand.
+
+15
+00:02:03,000 --> 00:02:14,000
+The assistant answers common questions and provides a local fallback, with strict privacy filters that refuse sensitive Aadhaar numbers.
+
+16
+00:02:15,500 --> 00:02:24,000
+Licence Saathi supports Hindi, accessible text sizes and mobile-first navigation for people using basic smartphones.
+
+17
+00:02:25,000 --> 00:02:34,500
+Every element is tested at 360 pixels width with large typography and high contrast for bright sunlight readability.
+
+18
+00:02:35,500 --> 00:02:42,000
+After the first successful load, cached learning and journey features can continue working without an internet connection.
+
+19
+00:02:43,000 --> 00:02:49,500
+The Progressive Web App ensures that unreliable 2G or 3G data never stops an applicant from preparing.
+
+20
+00:02:50,500 --> 00:02:56,000
+Licence Saathi makes the driving licence journey simpler, clearer and more accessible.
+
+21
+00:02:56,500 --> 00:03:00,000
+It is a prototype using sample data, not an official government service.

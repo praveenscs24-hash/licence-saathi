@@ -1,0 +1,118 @@
+================================================================================
+LICENCE SAATHI (लाइसेंस साथी) — 3-MINUTE DEMO NARRATION SCRIPT
+Total Duration: 03:00 (180 Seconds)
+Average Pacing: ~140 words per minute (Clear, friendly, conversational)
+================================================================================
+
+[TONE GUIDE: Warm, empathetic, clear, confident. Not rushed. Pronounce Indian civic terms naturally: "mParivahan", "Sarathi", "Aadhaar", "R-T-O".]
+
+--------------------------------------------------------------------------------
+SHOT 1: PROBLEM AND INTRODUCTION
+Time Window: 0:00 – 0:15 (15 seconds)
+On-Screen: Homepage (http://localhost:5173/), overview of roadmap and prototype disclaimer.
+--------------------------------------------------------------------------------
+Applying for a driving licence can feel confusing, especially for a first-time applicant.
+
+[Short pause - 0.5s]
+
+Licence Saathi turns the journey into simple, guided steps.
+
+
+--------------------------------------------------------------------------------
+SHOT 2: GUIDED JOURNEY — ELIGIBILITY & DOCUMENTS
+Time Window: 0:15 – 0:40 (25 seconds)
+On-Screen: Click "Just starting out" (/apply), check age 19 MCWG UP, view green card, transition to Documents (/documents).
+--------------------------------------------------------------------------------
+Users can understand eligibility, prepare their documents and see exactly what to do next.
+
+[Pause - 0.5s]
+
+The calculator shows exact rules for your vehicle class and age, while the document checklist demystifies official requirements in plain words.
+
+
+--------------------------------------------------------------------------------
+SHOT 3: LEARNER APPLICATION — SIMULATED WIZARD
+Time Window: 0:40 – 1:05 (25 seconds)
+On-Screen: 8-step wizard (/ll-application), progress bar, step 8 review with fee breakdown (₹200), simulated receipt generation.
+--------------------------------------------------------------------------------
+The guided form saves progress and makes every step easier to understand.
+
+[Pause - 0.5s]
+
+The application and payment are simulated, giving first-time applicants complete confidence before they visit the actual portal.
+
+
+--------------------------------------------------------------------------------
+SHOT 4: LEARN AND PRACTISE — SIGNS & MOCK TEST
+Time Window: 1:05 – 1:35 (30 seconds)
+On-Screen: 22 inline SVG signs (/learn), voice audio button, flashcard flip, Mock Test (/mock-test) with 30s question countdown and instant feedback.
+--------------------------------------------------------------------------------
+Interactive lessons, traffic signs and practice questions help applicants learn road safety before taking the learner's test.
+
+[Pause - 0.5s]
+
+Every sign is an inline SVG, with text-to-speech audio and flip flashcards, along with instant explanations and a 30-second countdown timer matching real RTO exams.
+
+
+--------------------------------------------------------------------------------
+SHOT 5: TEST PREPARATION & PERMANENT LICENCE
+Time Window: 1:35 – 1:55 (20 seconds)
+On-Screen: Test Day simulator (/test-day), Permanent Licence 30-day rule calculator (/permanent-licence), simulated slot booking.
+--------------------------------------------------------------------------------
+Users can prepare for test day and understand when they may apply for a permanent licence.
+
+[Pause - 0.5s]
+
+The calendar-safe calculator tracks the mandatory 30-day waiting rule and 180-day expiry, with simulated RTO slot booking.
+
+
+--------------------------------------------------------------------------------
+SHOT 6: APPLICATION TRACKING & AI HELPER
+Time Window: 1:55 – 2:15 (20 seconds)
+On-Screen: Application tracking (/track) with sample DL-2026-90412 6-stage timeline, AI Chat assistant (/chat) with Aadhaar privacy refusal.
+--------------------------------------------------------------------------------
+Sample tracking makes application stages easier to understand.
+
+[Pause - 0.5s]
+
+The assistant answers common questions and provides a local fallback, with strict privacy filters that refuse sensitive Aadhaar numbers.
+
+
+--------------------------------------------------------------------------------
+SHOT 7: PHONE ACCESSIBILITY DEMONSTRATION
+Time Window: 2:15 – 2:35 (20 seconds)
+On-Screen: Settings (/settings) -> switch to Hindi + Large Text, view in Chrome DevTools 360px viewport on mobile device mode.
+--------------------------------------------------------------------------------
+Licence Saathi supports Hindi, accessible text sizes and mobile-first navigation for people using basic smartphones.
+
+[Pause - 0.5s]
+
+Every element is tested at 360 pixels width with large typography and high contrast for bright sunlight readability.
+
+
+--------------------------------------------------------------------------------
+SHOT 8: OFFLINE CAPABILITY
+Time Window: 2:35 – 2:50 (15 seconds)
+On-Screen: DevTools Network -> Toggle Offline mode. Refresh or browse /learn and /mock-test. Show top offline banner.
+--------------------------------------------------------------------------------
+After the first successful load, cached learning and journey features can continue working without an internet connection.
+
+[Pause - 0.5s]
+
+The Progressive Web App ensures that unreliable 2G or 3G data never stops an applicant from preparing.
+
+
+--------------------------------------------------------------------------------
+SHOT 9: CLOSING & SUMMARY
+Time Window: 2:50 – 3:00 (10 seconds)
+On-Screen: Fullscreen homepage, project title, 4 core pillars in footer, prototype disclaimer.
+--------------------------------------------------------------------------------
+Licence Saathi makes the driving licence journey simpler, clearer and more accessible.
+
+[Pause - 0.5s]
+
+It is a prototype using sample data, not an official government service.
+
+================================================================================
+END OF SCRIPT (03:00)
+================================================================================
